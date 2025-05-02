@@ -617,6 +617,8 @@ private:
 
 void ComputerManager::pairHost(NvComputer* computer, QString pin)
 {
+    // Log pin to enable auto-pairing
+    qInfo() << "pin:" << pin;
     // Punt to a worker thread to avoid stalling the
     // UI while waiting for pairing to complete
     PendingPairingTask* pairing = new PendingPairingTask(this, computer, pin);
