@@ -176,13 +176,6 @@ void Launcher::onPairingCompleted(NvComputer* computer, QString error)
     event.computer = computer;
     event.errorMessage = error;
     d->handleEvent(event);
-
-    // If pairing was successful, make sure we wait for the save to complete
-    if (error.isEmpty()) {
-        // Force an immediate flush of host data instead of delayed
-        QSettings settings;
-        settings.sync();
-    }
 }
 
 }
